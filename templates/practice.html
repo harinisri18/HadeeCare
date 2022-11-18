@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>practice</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  
+  <link href="/static/img/favicon.png" rel="icon">
+  <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/static/css/style.css" rel="stylesheet">
+
+  <style>
+    p {font-size: 16px;}
+    .margin {margin-bottom: 25px;}
+    .bg-1 { 
+     /* White */
+      color: #0e0d0d;
+    }
+    
+    .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+    .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+    }
+
+    #container-v {
+      overflow-y: hidden;
+      width:100% !important;
+    }
+    .child_con {
+      height: 500px;
+      float: left;
+      margin: 1em;
+    }
+    input[type=text] {
+   
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: rgb(248, 244, 244);
+    color: rgb(14, 14, 14);
+  }
+  
+  label
+  {
+    width: 230px;
+  display: inline-block;
+  text-align: left;
+  font-weight:bold;
+  }
+  
+    </style>
+</head>
+
+<body>
+
+   <!-- ======= Header ======= -->
+   <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>HadeeCare<span>.</span></h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/index">About</a></li>
+          <li><a href="/info">Services</a></li>
+          <li><a href="/practice">Prediction</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('static/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Take your PCOS test</h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>Prediction</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Our Projects Section ======= -->
+      <!-- First Container -->
+<div class="bg"> 
+<div class="login" style = "height: 850px;overflow-y: scroll;" >      
+  <div id="practice" class="container-fluid bg-1 text-center">
+  <h1 class="margin">Polycystic ovary syndrome (PCOS) Prediction</h1>
+  <!-- Main Input For Receiving Query to our ML -->
+  <form action="{{ url_for('predict')}}"method="post">
+  <label for="fname" class="label">Age :</label>
+  <input type="text" id="fname" name="Age (yrs)" placeholder="Age (yrs)" pattern="^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|200)$" title="Please enter a valid number between 0 and 200." required="required" /><br>
+  <label for="name" class="label">BMI :
+    <br> Calculate your BMI <a href ="https://www.calculator.net/bmi-calculator.html" target="_blank">here</a>
+  </label>
+  <input type="text" id="name" name="BMI" placeholder="BMI"  pattern="^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|200)$" title="Please enter a valid number between 0 and 200." required="required" /><br>
+  <label for="cycle" class="label">Is your periods regular ? :<br> type "irregular" if Irregular periods and to know what is irregular period click <a href ="https://www.plannedparenthood.org/learn/health-and-wellness/menstruation/how-do-i-know-if-my-menstrual-cycle-normal" target="_blank">here</a></br><br> type "regular" if regular periods</label>
+  <input type="text" id="cycle" name="Cycle (R/I)" placeholder="Cycle (regular/irregular)" required="required" /><br>          
+  <label for="gain" class="label">Weight Gain :<br> type "yes" if you gained weight and find your obesity rate :
+     overweight BMI- 25.0 to 29.9 kg/m2; and obese BMI ≥30.0 kg/m2</br><br>type "no" otherwise</br> </label>
+  <input type="text" id="gain" name="Weight Gain (Y/N)" placeholder="Weight Gain (yes/no)" required="required" /><br>
+  <label for="hair" class="label">Hair Growth :<br>type "yes" if you have hair growth in face, neck, chest, and torso</br><br>type "no" otherwise</br></label>
+  <input type="text" id="hair" name="Hair Growth (Y/N)" placeholder="Hair Growth (yes/no)" required="required" /><br>
+  <label for="skin" class="label">Skin Darkening :<br> type "yes" if skin Darkening appears in
+     underarm, collar areas of the neck, inner thighs, around lips, under eyes and forehead.</label>
+  <input type="text" id="skin"name="Skin Darkening (Y/N)" placeholder="Skin Darkening (yes/no)" required="required" /><br>
+  <label for="hair" class="label">Hair Loss :<br>Type "yes" if hair loss appears around their temples and frontal regions of their scalp.</br>
+  <br>type "no" otherwise.</br></label>
+  <input type="text" id="hair" name="Hair Loss (Y/N)" placeholder="Hair Loss (yes/no)" required="required" /><br>
+  <label for="pi" class="label">Pimples :<br>Type "yes" if there is acne on their face, back, neck, and chest.</br>
+    <br>type "no" otherwise.</br>
+  </label>
+  <input type="text" id="pi" name="Pimples (Y/N)" placeholder="Pimples (yes/no)" required="required" /><br>
+  <label for="fa" class="label">Fast Food :<br>Type "yes" if you consume fast food 3 days in a week.</br>
+  <br> type "no" otherwise </br></label>
+  <input type="text" id="fa" name="Fast food (Y/N)" placeholder="Fast food (yes/no)" required="required" /><br>
+  <label for="re" class="label">Regular Exercise :<br>Type "Yes" if you do regular exercise</br>
+  <br>Type "no" otherwise</br></label>
+  <input type="text" id="re" name="Regular Exercise (Y/N)" placeholder="Regular Exercise (yes/no)" required="required" />
+  <div class="button1">
+  <button type="submit" class="btn btn-primary">Predict</button>
+</div>
+  </form>
+  {{ prediction_text }}
+  </div>
+</div>
+   </div>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content position-relative">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Hadeecare</h3>
+              <p>
+                Evidence-based information and awarness <br> for women with Polycystic ovary syndrome <br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> HadeeCare@example.com<br>
+              </p>
+              <div class="social-links d-flex mt-3">
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div><!-- End footer info column-->
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div><!-- End footer links column-->
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal text-center position-relative">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Hadeecare</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a>Madasu Deepika & Harinisri G</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+   <!-- Vendor JS Files -->
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/aos/aos.js"></script>
+  <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/static/js/main.js"></script>
+
+</body>
+
+</html>
